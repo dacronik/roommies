@@ -66,6 +66,7 @@ const nuevoRoommate = () => {
         return response.json();
     }).then((json) => {
         console.log('Recibió', JSON.stringify(json))
+        imprimir();
         
     });
     imprimir();
@@ -86,6 +87,7 @@ const agregarGasto = () => {
             monto,
         }),
     });
+    imprimir();
 };
 
 const deleteGasto = async (id) => {

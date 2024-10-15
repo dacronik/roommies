@@ -23,6 +23,7 @@ app.get('/', (req, res) => {
 app.use('/roommate',roomateRoutes); //Ruta POST
 app.use('/roommates',roomateRoutes); //Ruta GET
 app.use('/gastos',gastosRoutes); //Ruta de gastos
+app.use('/gasto', gastosRoutes); //segunda ruta
 
 
 app.listen(PORT, () => {

@@ -6,10 +6,10 @@ const path = require('path');
 const router = express.Router();
 
 //Ruta para obtener todos los gastos
-router.get/'/',(req,res) =>{
+router.get('/',(req,res) =>{
     const gastos = readDataFromFile(path.join(__dirname,'../data/gastos.json'));
     res.status(200).json(gastos);
-};
+});
 
 // Ruta para agregar un nuevo gasto
 router.post('/', (req, res) =>{
