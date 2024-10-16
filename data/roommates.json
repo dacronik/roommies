@@ -2,25 +2,25 @@
   {
     "id": "12aabf0a-00fb-4153-9f39-484483069142",
     "nombre": "Amandus Ruud",
-    "debe": 2500,
-    "recibe": 15000
+    "debe": 5000,
+    "recibe": -5000
   },
   {
     "id": "51be10c4-5990-4029-bbbf-002cf68a509f",
     "nombre": "Teresa Diaz",
     "debe": 5000,
-    "recibe": 7500
+    "recibe": 15000
   },
   {
     "id": "8d3f686f-d533-433f-af14-29805d5bc9ac",
     "nombre": "Magnus Rasmussen",
-    "debe": 7500,
-    "recibe": 0
+    "debe": 5000,
+    "recibe": -5000
   },
   {
     "id": "2377836f-de17-4fc7-8d17-abdb9b73151f",
     "nombre": "Susan Rogers",
-    "debe": 7500,
-    "recibe": 0
+    "debe": 5000,
+    "recibe": -5000
   }
 ]
