@@ -4,5 +4,11 @@
     "roommate": "Teresa Diaz",
     "descripcion": " feria",
     "monto": 30000
+  },
+  {
+    "id": "10e33d71-72b2-477b-8ad8-94b4794b0548",
+    "roommate": "Amandus Ruud",
+    "descripcion": "supermercado",
+    "monto": 25000
   }
 ]
