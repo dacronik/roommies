@@ -1,6 +1,6 @@
 const express = require('express');
 const { v4: uuidv4 } = require('uuid');
-const {readDataFromFile, writeDataToFile} = require('../utils/fileHandler'); 
+const {readDataFromFile, writeDataToFile} = require('../controllers/fileHandler'); 
 const path = require('path');
 
 const router = express.Router();
@@ -15,6 +15,10 @@ router.get('/',(req,res) =>{
 router.post('/', (req, res) =>{
     const { roommate,descripcion,monto } = req.body;
 
+    //Leer los datos actualues de los gastos y roommates
+    const gastos = readDataFromFile(path.join(__dirname,'../data/gastos.json'));
+    const roommates = readDataFromFile(path.join(__dirname, '../data/roommates.json'));
+
     //Crear un nuevo objeto de gasto
     const nuevoGasto ={
         id: uuidv4(),
@@ -22,9 +26,27 @@ router.post('/', (req, res) =>{
         descripcion,
         monto
     };
-    const gastos = readDataFromFile(path.join(__dirname,'../data/gastos.json'));
+    
+    //Agregar nuevo gasto a la lista
     gastos.push(nuevoGasto);
     writeDataToFile(path.join(__dirname,'../data/gastos.json'),gastos);
+
+    //Actualizar los valores de 'debe' y 'recibe' en roommates.json
+    const numRoommates = roommates.length;
+    const montoPorRoommate = monto / numRoommates
+
+    roommates.forEach(rm => {
+        if (rm.nombre === roommate) {
+            //Actualiza el 'recibe' para el que realizó el gasto
+            rm.recibe += monto - montoPorRoommate;
+        }else {
+            //Actualiza el 'debe' para los demas usuarios
+            rm.debe += montoPorRoommate;
+        }
+    });
+
+    // Guardar los cambios en roommates.json
+    writeDataToFile(path.join(__dirname, '../data/roommates.json'), roommates);
 
     res.status(201).json(nuevoGasto);
 });

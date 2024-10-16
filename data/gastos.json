@@ -1,14 +1,14 @@
 [
   {
-    "id": "6ba67b72-8472-4633-93a5-855f775ad02f",
-    "roommate": "Teresa Diaz",
+    "id": "133786b9-5cd0-45a8-a790-757dbae5ec49",
+    "roommate": "Amandus Ruud",
     "descripcion": " feria",
-    "monto": 30000
+    "monto": 20000
   },
   {
-    "id": "10e33d71-72b2-477b-8ad8-94b4794b0548",
-    "roommate": "Amandus Ruud",
+    "id": "510f263d-1d1e-4f85-a0f3-53799c6cb022",
+    "roommate": "Teresa Diaz",
     "descripcion": "supermercado",
-    "monto": 25000
+    "monto": 10000
   }
 ]
