@@ -1,1 +1,14 @@
-[]
+[
+  {
+    "id": "1533a98d-ca15-4964-a940-6652d7d2171d",
+    "roommate": "Amandus Ruud",
+    "descripcion": " asdas",
+    "monto": 20000
+  },
+  {
+    "id": "ab72c35f-c9b6-4dcc-b8bf-8e0be1a0ed10",
+    "roommate": "Teresa Diaz",
+    "descripcion": " asdasasd",
+    "monto": 70000
+  }
+]

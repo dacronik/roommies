@@ -48,11 +48,12 @@ router.post('/', (req, res) =>{
 //Ruta para eliminar un gasto
 router.delete('/:id', (req,res) =>{
     try {
-        const { id} = req.params;
-    
         // Leer los datos actuales de los gastos y los roommates
         let gastos = readDataFromFile(path.join(__dirname, '../data/gastos.json'));
         const roommates = readDataFromFile(path.join(__dirname, '../data/roommates.json'));
+        const { id} = req.params;
+    
+        
 
 
         const filteredGastos = gastos.filter((gasto) => gasto.id !== id);
@@ -60,7 +61,7 @@ router.delete('/:id', (req,res) =>{
         writeDataToFile(path.join(__dirname,'../data/gastos.json'),filteredGastos);
 
         // Actualizar los roommates después de eliminar un gasto
-        actualizarRoommates(roommates, gastos);
+        actualizarRoommates(roommates, filteredGastos);
 
         res.status(204).send();
     } catch (error) {
@@ -72,12 +73,13 @@ router.delete('/:id', (req,res) =>{
 //Ruta para actualizar un gasto
 router.put('/:id', (req,res) =>{
     try {
-        const { id} = req.params;
-        const { roommate,descripcion,monto } = req.body;
-        
         // Leer los datos actuales de los gastos y los roommates
         let gastos = readDataFromFile(path.join(__dirname,'../data/gastos.json'));
         const roommates = readDataFromFile(path.join(__dirname, '../data/roommates.json'));
+        const { id} = req.params;
+        const { roommate,descripcion,monto } = req.body;
+        
+        
 
         const updatedGasto = gastos.map((gasto)=>{
             if(gasto.id === id){
@@ -89,7 +91,7 @@ router.put('/:id', (req,res) =>{
         writeDataToFile(path.join(__dirname,'../data/gastos.json'),updatedGasto);
 
         // Actualizar los roommates después de modificar un gasto
-        actualizarRoommates(roommates, gastos);
+        actualizarRoommates(roommates, updatedGasto);
 
         res.status(200).json(updatedGasto.find(gasto=>gasto.id === id));
     } catch (error) {
